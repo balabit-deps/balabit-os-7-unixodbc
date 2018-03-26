@@ -156,6 +156,10 @@ eval "SHLIBEXT=$shrext_cmds"
 AC_MSG_RESULT($SHLIBEXT)
 AC_SUBST(SHLIBEXT,$SHLIBEXT)
 
+dnl export the libdir, so we can have a multiarch-friendly search path
+dnl for ODBC drivers.
+AC_DEFINE_UNQUOTED([MODULEDIR], ["`eval echo $libdir/odbc`"], [ODBC driver search path])
+
 AC_DEFINE_UNQUOTED([SHLIBEXT], "$shrext_cmds", [Shared lib extension])
 AC_DEFINE_DIR([DEFLIB_PATH], [libdir], [Lib directory])
 AC_DEFINE_DIR([LIB_PREFIX], [libdir], [Lib directory])
